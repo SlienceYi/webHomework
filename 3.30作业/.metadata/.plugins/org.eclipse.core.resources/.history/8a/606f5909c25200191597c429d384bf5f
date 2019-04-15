@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="address.js"></script>  
+		<title></title>
+	</head>
+
+	<body>
+		
+		<table  align="center" border="1" >
+			<form action = "process.jsp" method="post">
+				
+			<tr align="center" bgcolor="antiquewhite">
+				<td colspan="2">
+					<font color="blue">学生信息注册</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%">
+					请输入您的学号：
+				</td>
+				<td>
+					<input type="text" name="stuNum" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的密码：
+				</td>
+				<td>
+					<input type="password" name="password1" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请再次输入您的密码：
+				</td>
+				<td>
+					<input type="password" name="password2"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的姓名：
+				</td>
+				<td>
+					<input type="text" name="name"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的出生日期：
+				</td>
+				<td>
+					<input type="date" name="birthday"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的性别：
+				</td>
+				<td>
+					<input type="radio" name="sex" value="boy" checked/>男
+					<input type="radio" name="sex" value="girl" />女
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的专业班级：
+				</td>
+				<td>
+					<input type="text" name="major" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请选择您的籍贯：
+				</td>
+				<td>
+					<select id="cmbProvince" name="cmbProvince"></select>  
+					<select id="cmbCity" name="cmbCity"></select>  
+					<select id="cmbArea" name="cmbArea"></select>  
+					<script type="text/javascript">  
+					addressInit('cmbProvince', 'cmbCity', 'cmbArea');  
+					</script> 
+					<!--<select>
+						<option>江西</option>
+						<option>福建</option>
+						<option>广东</option>
+					</select>-->
+				</td>	
+			</tr>
+			<tr>
+				<td>
+					请选择您感兴趣的技术：				
+				</td>
+				<td>
+					<input type="checkbox" name="interest" value="web"/>Web
+					<input type="checkbox" name="interest" value="ai"/>AI
+					<input type="checkbox" name="interest" value="mobile"/>Mobile
+					<input type="checkbox" name="interest" value="clode"/>Cloud
+				</td>
+			</tr>
+				<td>
+					请输入您的邮箱：
+				</td>
+				<td>
+					<input type="text" />
+				</td>
+			<tr>
+				<td>
+				
+				</td>
+				<td>
+					<input type="submit" value="注册" />
+					<input type="reset" value="重置表单" />
+				</td>
+				
+			</tr>
+
+			</form>
+		</table>
+		
+	</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<script type="text/javascript" src="address.js"></script>  
+			<script>
+			/*
+				1. 确认事件: 表单提交事件 onsubmit事件 
+				2. 事件所要触发的函数: checkForm
+				3. 函数中的验证
+					1.校验用户名, 长度为10位
+					2.校验密码，密码长度要大于6位
+					3.校验手机
+					4.校验邮箱
+			*/
+			function checkForm(){
+				
+				//获取用户名输入项
+				var inputObj = document.getElementById("stuNum");
+				//获取输入项的值
+				var uValue = inputObj.value;
+
+				//用户名长度需要是10位数字 
+				if(uValue.length != 10 ){
+					alert("对不起,您的学号应为十位数字组成!");
+					return false;	
+				}
+				
+				//密码长度需要大于6位 和确认必须一致
+				//获取密码框输入的值
+				var input_password = document.getElementById("password1");
+				var uPass = input_password.value;
+				
+				if(uPass.length < 6){
+					alert("对不起,您输入的密码少于6位数!");
+					return false;
+				}
+				
+				//获取确认密码框的值
+				var input_repassword = document.getElementById("password2");
+				var uRePass = input_repassword.value;
+				if(uPass != uRePass){
+					alert("对不起,两次输入的密码不一致!");
+					return false;
+				}
+				
+				//校验手机号
+				var input_mobile = document.getElementById("phoneNum");
+				var uMobile = input_mobile.value;
+				//
+				if(!/^[1][3578][0-9]{9}$/.test(uMobile)){
+					alert("对不起,您输入的手机号不正确!");
+					return false;
+				}
+				
+				//校验邮箱: /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/
+				var inputEmail = document.getElementById("email");
+				var uEmail = inputEmail.value;
+				
+				if(!/^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/.test(uEmail)){
+					alert("对不起,您输入的邮箱地址不合法");
+					return false;
+				}			
+				return true;
+			}	
+		</script>
+		<title></title>
+	</head>
+
+	<body style="background:url(Cg-4zFVsCAKIA_Y2AEnXxJVr-WQAAXhsQC0hVIASdfc742.jpg);background-repeat: no-repeat; background-position: center;">
+		<div id="head1" style="height: 130px;">
+			
+		</div>
+		<table  align="center"  bgcolor=darkseagreen height="400" width="500">
+			<form action = "process.jsp" method="post" onsubmit="return checkForm()">
+				
+			<tr align="center" bgcolor="antiquewhite">
+				<td colspan="2">
+					<font color="blue">学生信息注册</font>
+				</td>
+			</tr>
+			<tr>
+				<td width="40%" >
+					请输入您的学号：
+				</td>
+				<td>
+					<input type="text" id="stuNum"  name="stuNum"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的密码：
+				</td>
+				<td>
+					<input type="password" name="password1" id="password1"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请再次输入您的密码：
+				</td>
+				<td>
+					<input type="password" name="password2" id="password2"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的姓名：
+				</td>
+				<td>
+					<input type="text" name="name"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的出生日期：
+				</td>
+				<td>
+					<input type="date" name="birthday"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的性别：
+				</td>
+				<td>
+					<input type="radio" name="sex" value="boy" checked/>男
+					<input type="radio" name="sex" value="girl" />女
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的专业班级：
+				</td>
+				<td>
+					<input type="text" name="major" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请选择您的籍贯：
+				</td>
+				<td>
+					<select id="cmbProvince" name="cmbProvince" ></select>  
+					<select id="cmbCity" name="cmbCity"></select>  
+					<select id="cmbArea" name="cmbArea"></select>  
+					<script type="text/javascript">  
+					addressInit('cmbProvince', 'cmbCity', 'cmbArea');  
+					</script> 
+					<!--<select>
+						<option>江西</option>
+						<option>福建</option>
+						<option>广东</option>
+					</select>-->
+				</td>	
+			</tr>
+			<tr>
+				<td>
+					请选择您感兴趣的技术：				
+				</td>
+				<td>
+					<input type="checkbox" name="interest" value="web"/>Web
+					<input type="checkbox" name="interest" value="ai"/>AI
+					<input type="checkbox" name="interest" value="mobile"/>Mobile
+					<input type="checkbox" name="interest" value="clode"/>Cloud
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的手机号码：
+				</td>
+				<td>
+					<input type="text" name="phoneNum" id="phoneNum" />
+				</td>
+			</tr>
+			<tr>
+				<td>
+					请输入您的邮箱：
+				</td>
+				<td>
+					<input type="text" name="email" id="email"/>
+				</td>
+			</tr>	
+			<tr>
+				<td>
+				
+				</td>
+				<td>
+					<input type="submit" value="注册" />
+					<input type="reset" value="重置表单" />
+				</td>
+				
+			</tr>
+
+			</form>
+		</table>
+		
+	</body>
+</html>
